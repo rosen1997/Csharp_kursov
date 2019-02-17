@@ -1,0 +1,11 @@
+E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\Library\Library\bin\Debug\Library.exe.config
+E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\Library\Library\bin\Debug\Library.exe
+E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\Library\Library\bin\Debug\Library.pdb
+E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\Library\Library\obj\Debug\Library.Form1.resources
+E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\Library\Library\obj\Debug\Library.Properties.Resources.resources
+E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\Library\Library\obj\Debug\Library.csproj.GenerateResource.Cache
+E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\Library\Library\obj\Debug\Library.exe
+E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\Library\Library\obj\Debug\Library.pdb
+E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\Library\Library\obj\Debug\Library.Books.resources
+E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\Library\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache
+E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\Library\Library\obj\Debug\Library.Insert_Book.resources
