@@ -19,12 +19,9 @@ namespace Library
 
         private void Readers_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'libraryDataSet1.READERS' table. You can move, or remove it, as needed.
-            this.rEADERSTableAdapter.Fill(this.libraryDataSet1.READERS);
-            // TODO: This line of code loads data into the 'libraryDataSet.READERS' table. You can move, or remove it, as needed.
             try
             {
-                this.rEADERSTableAdapter.Fill(this.libraryDataSet.READERS);
+                this.rEADERSTableAdapter.Fill(this.libraryDataSet1.READERS);
             }
             catch (System.Exception ex)
             {
