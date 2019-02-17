@@ -9,3 +9,6 @@ E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\Library\Library\obj\Debug\Library.pdb
 E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\Library\Library\obj\Debug\Library.Books.resources
 E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\Library\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache
 E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\Library\Library\obj\Debug\Library.Insert_Book.resources
+E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\git_library\Csharp_kursov\Library\Library\bin\Debug\Library.exe.config
+E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\git_library\Csharp_kursov\Library\Library\obj\Debug\Library.exe
+E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\git_library\Csharp_kursov\Library\Library\obj\Debug\Library.pdb
