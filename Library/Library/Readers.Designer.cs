@@ -44,6 +44,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.TDB_tools = new System.Windows.Forms.ToolStripDropDownButton();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registerAReaderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.searchByNumberToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rEADERSBindingSource)).BeginInit();
@@ -146,7 +147,8 @@
             // 
             this.TDB_tools.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.TDB_tools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.refreshToolStripMenuItem});
+            this.refreshToolStripMenuItem,
+            this.registerAReaderToolStripMenuItem});
             this.TDB_tools.Image = ((System.Drawing.Image)(resources.GetObject("TDB_tools.Image")));
             this.TDB_tools.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TDB_tools.Name = "TDB_tools";
@@ -156,9 +158,16 @@
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
             this.refreshToolStripMenuItem.Text = "Refresh";
             this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+            // 
+            // registerAReaderToolStripMenuItem
+            // 
+            this.registerAReaderToolStripMenuItem.Name = "registerAReaderToolStripMenuItem";
+            this.registerAReaderToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.registerAReaderToolStripMenuItem.Text = "Register a reader";
+            this.registerAReaderToolStripMenuItem.Click += new System.EventHandler(this.registerAReaderToolStripMenuItem_Click);
             // 
             // Readers
             // 
@@ -196,5 +205,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripDropDownButton TDB_tools;
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registerAReaderToolStripMenuItem;
     }
 }

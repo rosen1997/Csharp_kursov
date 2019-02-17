@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    class Reader
+    public class Reader
     {
         private string Name;
         private string Number;

@@ -47,5 +47,29 @@ namespace Library
         {
             Readers_Load(sender, e);
         }
+
+        private void registerAReaderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Reader reader = new Reader();
+            using (var form = new Insert_Reader())
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    reader = form.rd;
+
+                    try
+                    {
+                        this.rEADERSTableAdapter.Insert(reader.getName(), reader.getNumber(), reader.getAddress());
+                    }
+                    catch (System.Exception ex)
+                    {
+                        System.Windows.Forms.MessageBox.Show(ex.Message);
+                    }
+
+                    refreshToolStripMenuItem_Click(sender, e);
+                }
+            }
+        }
     }
 }

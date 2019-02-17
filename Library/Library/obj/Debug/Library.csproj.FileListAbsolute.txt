@@ -21,3 +21,4 @@ E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\git_library\Csharp_kursov\Library\Lib
 E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\git_library\Csharp_kursov\Library\Library\obj\Debug\Library.Properties.Resources.resources
 E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\git_library\Csharp_kursov\Library\Library\obj\Debug\Library.csproj.GenerateResource.Cache
 E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\git_library\Csharp_kursov\Library\Library\obj\Debug\Library.Readers.resources
+E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\git_library\Csharp_kursov\Library\Library\obj\Debug\Library.Insert_Reader.resources
