@@ -19,6 +19,8 @@ namespace Library
 
         private void Readers_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'libraryDataSet1.READERS' table. You can move, or remove it, as needed.
+            this.rEADERSTableAdapter.Fill(this.libraryDataSet1.READERS);
             // TODO: This line of code loads data into the 'libraryDataSet.READERS' table. You can move, or remove it, as needed.
             try
             {
@@ -71,5 +73,73 @@ namespace Library
                 }
             }
         }
+
+        private void removeAReaderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow oneRow in dataGridView1.SelectedRows)
+            {
+                if (oneRow.Selected)
+                {
+                    DialogResult res = MessageBox.Show("Removing a reader!", "Removing", MessageBoxButtons.OKCancel);
+                    if (res == DialogResult.OK)
+                    {
+
+                        string Num_to_del = oneRow.Cells[1].Value.ToString();
+
+                        try
+                        {
+                            this.rEADERSTableAdapter.DeleteByNum(Num_to_del);
+                            dataGridView1.Rows.RemoveAt(oneRow.Index);
+                        }
+                        catch (System.Exception ex)
+                        {
+                            System.Windows.Forms.MessageBox.Show(ex.Message);
+                        }
+
+                    }
+                }
+
+            }
+        }
+
+        private void updateAReaderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Reader reader = new Reader();
+
+            foreach (DataGridViewRow oneRow in dataGridView1.SelectedRows)
+            {
+                if (oneRow.Selected)
+                {
+                    int id =Convert.ToInt16(oneRow.Cells[0].Value);
+                    string name = oneRow.Cells[1].Value.ToString();
+                    string num = oneRow.Cells[2].Value.ToString();
+                    string address = oneRow.Cells[3].Value.ToString();
+
+
+                    using (var form = new Insert_Reader(name, num, address))
+                    {
+                        var result = form.ShowDialog();
+                        if (result == DialogResult.OK)
+                        {
+                            reader = form.rd;
+
+                            try
+                            {
+                                this.rEADERSTableAdapter.UpdateReader(reader.getNumber(), reader.getAddress(), id);
+                            }
+                            catch (System.Exception ex)
+                            {
+                                System.Windows.Forms.MessageBox.Show(ex.Message);
+                            }
+
+                            refreshToolStripMenuItem_Click(sender, e);
+                        }
+                    }
+                }
+
+            }
+           
+        }
+
     }
 }

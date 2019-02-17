@@ -639,6 +639,8 @@ namespace Library {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class READERSDataTable : global::System.Data.TypedTableBase<READERSRow> {
             
+            private global::System.Data.DataColumn columnID;
+            
             private global::System.Data.DataColumn columnNAME;
             
             private global::System.Data.DataColumn columnPHONE_NUMBER;
@@ -676,6 +678,14 @@ namespace Library {
             protected READERSDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IDColumn {
+                get {
+                    return this.columnID;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -742,6 +752,7 @@ namespace Library {
             public READERSRow AddREADERSRow(string NAME, string PHONE_NUMBER, string ADDRESS) {
                 READERSRow rowREADERSRow = ((READERSRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
+                        null,
                         NAME,
                         PHONE_NUMBER,
                         ADDRESS};
@@ -752,9 +763,9 @@ namespace Library {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public READERSRow FindByPHONE_NUMBER(string PHONE_NUMBER) {
+            public READERSRow FindByID(int ID) {
                 return ((READERSRow)(this.Rows.Find(new object[] {
-                            PHONE_NUMBER})));
+                            ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -774,6 +785,7 @@ namespace Library {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
+                this.columnID = base.Columns["ID"];
                 this.columnNAME = base.Columns["NAME"];
                 this.columnPHONE_NUMBER = base.Columns["PHONE_NUMBER"];
                 this.columnADDRESS = base.Columns["ADDRESS"];
@@ -782,6 +794,8 @@ namespace Library {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
                 this.columnNAME = new global::System.Data.DataColumn("NAME", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNAME);
                 this.columnPHONE_NUMBER = new global::System.Data.DataColumn("PHONE_NUMBER", typeof(string), null, global::System.Data.MappingType.Element);
@@ -789,11 +803,16 @@ namespace Library {
                 this.columnADDRESS = new global::System.Data.DataColumn("ADDRESS", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnADDRESS);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnPHONE_NUMBER}, true));
+                                this.columnID}, true));
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = -1;
+                this.columnID.AutoIncrementStep = -1;
+                this.columnID.AllowDBNull = false;
+                this.columnID.ReadOnly = true;
+                this.columnID.Unique = true;
                 this.columnNAME.AllowDBNull = false;
                 this.columnNAME.MaxLength = 64;
                 this.columnPHONE_NUMBER.AllowDBNull = false;
-                this.columnPHONE_NUMBER.Unique = true;
                 this.columnPHONE_NUMBER.MaxLength = 16;
                 this.columnADDRESS.AllowDBNull = false;
                 this.columnADDRESS.MaxLength = 128;
@@ -1005,6 +1024,17 @@ namespace Library {
             internal READERSRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tableREADERS = ((READERSDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int ID {
+                get {
+                    return ((int)(this[this.tableREADERS.IDColumn]));
+                }
+                set {
+                    this[this.tableREADERS.IDColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1773,38 +1803,43 @@ SELECT ID, TITLE, AUTHOR, PUBLISHER, AVAILABLE FROM BOOKS WHERE (ID = @ID)";
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "READERS";
+            tableMapping.ColumnMappings.Add("ID", "ID");
             tableMapping.ColumnMappings.Add("NAME", "NAME");
             tableMapping.ColumnMappings.Add("PHONE_NUMBER", "PHONE_NUMBER");
             tableMapping.ColumnMappings.Add("ADDRESS", "ADDRESS");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [READERS] WHERE (([NAME] = @Original_NAME) AND ([PHONE_NUMBER] = @Ori" +
-                "ginal_PHONE_NUMBER) AND ([ADDRESS] = @Original_ADDRESS))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [READERS] WHERE (([ID] = @Original_ID) AND ([NAME] = @Original_NAME) " +
+                "AND ([PHONE_NUMBER] = @Original_PHONE_NUMBER) AND ([ADDRESS] = @Original_ADDRESS" +
+                "))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NAME", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NAME", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PHONE_NUMBER", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PHONE_NUMBER", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ADDRESS", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ADDRESS", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [READERS] ([NAME], [PHONE_NUMBER], [ADDRESS]) VALUES (@NAME, @PHONE_N" +
-                "UMBER, @ADDRESS);\r\nSELECT NAME, PHONE_NUMBER, ADDRESS FROM READERS WHERE (PHONE_" +
-                "NUMBER = @PHONE_NUMBER)";
+                "UMBER, @ADDRESS);\r\nSELECT ID, NAME, PHONE_NUMBER, ADDRESS FROM READERS WHERE (ID" +
+                " = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NAME", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PHONE_NUMBER", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PHONE_NUMBER", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ADDRESS", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ADDRESS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [READERS] SET [NAME] = @NAME, [PHONE_NUMBER] = @PHONE_NUMBER, [ADDRESS] = @ADDRESS WHERE (([NAME] = @Original_NAME) AND ([PHONE_NUMBER] = @Original_PHONE_NUMBER) AND ([ADDRESS] = @Original_ADDRESS));
-SELECT NAME, PHONE_NUMBER, ADDRESS FROM READERS WHERE (PHONE_NUMBER = @PHONE_NUMBER)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [READERS] SET [NAME] = @NAME, [PHONE_NUMBER] = @PHONE_NUMBER, [ADDRESS] = @ADDRESS WHERE (([ID] = @Original_ID) AND ([NAME] = @Original_NAME) AND ([PHONE_NUMBER] = @Original_PHONE_NUMBER) AND ([ADDRESS] = @Original_ADDRESS));
+SELECT ID, NAME, PHONE_NUMBER, ADDRESS FROM READERS WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NAME", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PHONE_NUMBER", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PHONE_NUMBER", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ADDRESS", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ADDRESS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NAME", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NAME", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PHONE_NUMBER", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PHONE_NUMBER", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ADDRESS", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ADDRESS", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1817,17 +1852,30 @@ SELECT NAME, PHONE_NUMBER, ADDRESS FROM READERS WHERE (PHONE_NUMBER = @PHONE_NUM
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT * FROM READERS";
+            this._commandCollection[0].CommandText = "SELECT ID, NAME, PHONE_NUMBER, ADDRESS\r\nFROM     READERS";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT NAME, PHONE_NUMBER, ADDRESS\r\nFROM     READERS\r\nWHERE  (PHONE_NUMBER = @NUM" +
-                "BER)";
+            this._commandCollection[1].CommandText = "DELETE FROM READERS\r\nWHERE  (PHONE_NUMBER = @NUM)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NUMBER", global::System.Data.SqlDbType.NVarChar, 16, global::System.Data.ParameterDirection.Input, 0, 0, "PHONE_NUMBER", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NUM", global::System.Data.SqlDbType.NVarChar, 16, global::System.Data.ParameterDirection.Input, 0, 0, "PHONE_NUMBER", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT ID, NAME, PHONE_NUMBER, ADDRESS\r\nFROM     READERS\r\nWHERE  (PHONE_NUMBER = " +
+                "@NUM)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NUM", global::System.Data.SqlDbType.NVarChar, 16, global::System.Data.ParameterDirection.Input, 0, 0, "PHONE_NUMBER", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "UPDATE READERS\r\nSET          PHONE_NUMBER = @PHONE_NUMBER, ADDRESS = @ADDRESS\r\nWH" +
+                "ERE  (ID = @ID);  ";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PHONE_NUMBER", global::System.Data.SqlDbType.NVarChar, 16, global::System.Data.ParameterDirection.Input, 0, 0, "PHONE_NUMBER", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ADDRESS", global::System.Data.SqlDbType.NVarChar, 128, global::System.Data.ParameterDirection.Input, 0, 0, "ADDRESS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1858,13 +1906,13 @@ SELECT NAME, PHONE_NUMBER, ADDRESS FROM READERS WHERE (PHONE_NUMBER = @PHONE_NUM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int SearchByNumber(LibraryDataSet.READERSDataTable dataTable, string NUMBER) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((NUMBER == null)) {
-                throw new global::System.ArgumentNullException("NUMBER");
+        public virtual int SearchByNumber(LibraryDataSet.READERSDataTable dataTable, string NUM) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((NUM == null)) {
+                throw new global::System.ArgumentNullException("NUM");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(NUMBER));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(NUM));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1906,24 +1954,25 @@ SELECT NAME, PHONE_NUMBER, ADDRESS FROM READERS WHERE (PHONE_NUMBER = @PHONE_NUM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_NAME, string Original_PHONE_NUMBER, string Original_ADDRESS) {
+        public virtual int Delete(int Original_ID, string Original_NAME, string Original_PHONE_NUMBER, string Original_ADDRESS) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             if ((Original_NAME == null)) {
                 throw new global::System.ArgumentNullException("Original_NAME");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_NAME));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_NAME));
             }
             if ((Original_PHONE_NUMBER == null)) {
                 throw new global::System.ArgumentNullException("Original_PHONE_NUMBER");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_PHONE_NUMBER));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_PHONE_NUMBER));
             }
             if ((Original_ADDRESS == null)) {
                 throw new global::System.ArgumentNullException("Original_ADDRESS");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_ADDRESS));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_ADDRESS));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1984,7 +2033,7 @@ SELECT NAME, PHONE_NUMBER, ADDRESS FROM READERS WHERE (PHONE_NUMBER = @PHONE_NUM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string NAME, string PHONE_NUMBER, string ADDRESS, string Original_NAME, string Original_PHONE_NUMBER, string Original_ADDRESS) {
+        public virtual int Update(string NAME, string PHONE_NUMBER, string ADDRESS, int Original_ID, string Original_NAME, string Original_PHONE_NUMBER, string Original_ADDRESS, int ID) {
             if ((NAME == null)) {
                 throw new global::System.ArgumentNullException("NAME");
             }
@@ -2003,24 +2052,26 @@ SELECT NAME, PHONE_NUMBER, ADDRESS FROM READERS WHERE (PHONE_NUMBER = @PHONE_NUM
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(ADDRESS));
             }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_ID));
             if ((Original_NAME == null)) {
                 throw new global::System.ArgumentNullException("Original_NAME");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_NAME));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_NAME));
             }
             if ((Original_PHONE_NUMBER == null)) {
                 throw new global::System.ArgumentNullException("Original_PHONE_NUMBER");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_PHONE_NUMBER));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_PHONE_NUMBER));
             }
             if ((Original_ADDRESS == null)) {
                 throw new global::System.ArgumentNullException("Original_ADDRESS");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_ADDRESS));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_ADDRESS));
             }
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2041,8 +2092,73 @@ SELECT NAME, PHONE_NUMBER, ADDRESS FROM READERS WHERE (PHONE_NUMBER = @PHONE_NUM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string NAME, string ADDRESS, string Original_NAME, string Original_PHONE_NUMBER, string Original_ADDRESS) {
-            return this.Update(NAME, Original_PHONE_NUMBER, ADDRESS, Original_NAME, Original_PHONE_NUMBER, Original_ADDRESS);
+        public virtual int Update(string NAME, string PHONE_NUMBER, string ADDRESS, int Original_ID, string Original_NAME, string Original_PHONE_NUMBER, string Original_ADDRESS) {
+            return this.Update(NAME, PHONE_NUMBER, ADDRESS, Original_ID, Original_NAME, Original_PHONE_NUMBER, Original_ADDRESS, Original_ID);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteByNum(string NUM) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((NUM == null)) {
+                throw new global::System.ArgumentNullException("NUM");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(NUM));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateReader(string PHONE_NUMBER, string ADDRESS, int ID) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            if ((PHONE_NUMBER == null)) {
+                throw new global::System.ArgumentNullException("PHONE_NUMBER");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(PHONE_NUMBER));
+            }
+            if ((ADDRESS == null)) {
+                throw new global::System.ArgumentNullException("ADDRESS");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(ADDRESS));
+            }
+            command.Parameters[2].Value = ((int)(ID));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

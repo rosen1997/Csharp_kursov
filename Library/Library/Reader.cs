@@ -29,5 +29,9 @@ namespace Library
         public string getName() { return this.Name; }
         public string getNumber() { return this.Number; }
         public string getAddress() { return this.Address; }
+
+        public void setName(string n) { this.Name = n; }
+        public void setNumber(string n) { this.Number = n; }
+        public void setAddress(string a) { this.Address=a;}
     }
 }

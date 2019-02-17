@@ -48,13 +48,13 @@
             this.TSB_refresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.TSB_add = new System.Windows.Forms.ToolStripButton();
-            this.bOOKSTableAdapter = new Library.LibraryDataSetTableAdapters.BOOKSTableAdapter();
-            this.TSB_remove = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.TSBD_availability = new System.Windows.Forms.ToolStripDropDownButton();
+            this.TSB_remove = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.TSBD_availability = new System.Windows.Forms.ToolStripDropDownButton();
             this.makeAvailableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.makeUnavailableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bOOKSTableAdapter = new Library.LibraryDataSetTableAdapters.BOOKSTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bOOKSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet)).BeginInit();
@@ -75,6 +75,7 @@
             this.aVAILABLEDataGridViewCheckBoxColumn});
             this.dataGridView1.DataSource = this.bOOKSBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 75);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -213,9 +214,10 @@
             this.TSB_add.Text = "Add a book";
             this.TSB_add.Click += new System.EventHandler(this.TSB_add_Click);
             // 
-            // bOOKSTableAdapter
+            // toolStripSeparator4
             // 
-            this.bOOKSTableAdapter.ClearBeforeFill = true;
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 27);
             // 
             // TSB_remove
             // 
@@ -227,10 +229,10 @@
             this.TSB_remove.Text = "Remova a book";
             this.TSB_remove.Click += new System.EventHandler(this.TSB_remove_Click);
             // 
-            // toolStripSeparator4
+            // toolStripSeparator5
             // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 27);
             // 
             // TSBD_availability
             // 
@@ -243,11 +245,6 @@
             this.TSBD_availability.Name = "TSBD_availability";
             this.TSBD_availability.Size = new System.Drawing.Size(97, 24);
             this.TSBD_availability.Text = "Availability";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 27);
             // 
             // makeAvailableToolStripMenuItem
             // 
@@ -262,6 +259,10 @@
             this.makeUnavailableToolStripMenuItem.Size = new System.Drawing.Size(202, 26);
             this.makeUnavailableToolStripMenuItem.Text = "Make Unavailable";
             this.makeUnavailableToolStripMenuItem.Click += new System.EventHandler(this.makeUnavailableToolStripMenuItem_Click);
+            // 
+            // bOOKSTableAdapter
+            // 
+            this.bOOKSTableAdapter.ClearBeforeFill = true;
             // 
             // Books
             // 

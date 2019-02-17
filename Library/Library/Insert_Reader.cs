@@ -16,11 +16,25 @@ namespace Library
         public Insert_Reader()
         {
             InitializeComponent();
+            rd = new Reader(); 
+        }
+
+        public Insert_Reader(string n, string num, string a)
+        {
+            InitializeComponent();
+            rd = new Reader(n, num, a);
+            TXB_name.Text = rd.getName();
+            TXB_number.Text = rd.getNumber();
+            TXB_address.Text = rd.getAddress();
+            TXB_name.ReadOnly = true;
+            
         }
 
         private void BTN_register_Click(object sender, EventArgs e)
         {
-            rd = new Reader(TXB_name.Text, TXB_number.Text, TXB_address.Text);
+            rd.setName(TXB_name.Text);
+            rd.setNumber(TXB_number.Text);
+            rd.setAddress(TXB_address.Text);
 
             this.DialogResult = DialogResult.OK;
             this.Close();
