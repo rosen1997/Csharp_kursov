@@ -69,6 +69,7 @@
             this.readersToolStripMenuItem.Name = "readersToolStripMenuItem";
             this.readersToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.readersToolStripMenuItem.Text = "Readers";
+            this.readersToolStripMenuItem.Click += new System.EventHandler(this.readersToolStripMenuItem_Click);
             // 
             // registryToolStripMenuItem
             // 

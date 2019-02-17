@@ -68,7 +68,7 @@ SELECT ID, TITLE, AUTHOR, PUBLISHER, AVAILABLE FROM BOOKS WHERE (ID = @ID)</Comm
               <Mapping SourceColumn="AVAILABLE" DataSetColumn="AVAILABLE" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="LibraryConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteBook" Modifier="Public" Name="DeleteBook" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="DeleteBook">
+              <DbSource ConnectionRef="LibraryConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteBook" Modifier="Public" Name="DeleteBook" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteBook">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM BOOKS
@@ -79,7 +79,7 @@ WHERE  (ID = @ID)</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="LibraryConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery" Modifier="Public" Name="InsertQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertQuery">
+              <DbSource ConnectionRef="LibraryConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery" Modifier="Public" Name="InsertQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertQuery">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [dbo].[BOOKS] ([TITLE], [AUTHOR], [PUBLISHER], [AVAILABLE]) VALUES (@TITLE, @AUTHOR, @PUBLISHER, @AVAILABLE);
@@ -93,7 +93,7 @@ SELECT ID, TITLE, AUTHOR, PUBLISHER, AVAILABLE FROM BOOKS WHERE (ID = SCOPE_IDEN
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="LibraryConnectionString (Settings)" DbObjectName="Library.dbo.BOOKS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Search" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="Search" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="Search">
+              <DbSource ConnectionRef="LibraryConnectionString (Settings)" DbObjectName="Library.dbo.BOOKS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Search" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="Search" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="Search">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT * FROM BOOKS WHERE TITLE=@Title</CommandText>
@@ -103,7 +103,7 @@ SELECT ID, TITLE, AUTHOR, PUBLISHER, AVAILABLE FROM BOOKS WHERE (ID = SCOPE_IDEN
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="LibraryConnectionString (Settings)" DbObjectName="Library.dbo.BOOKS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Show_Available_Books" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="Show_Available_Books" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="Show_Available_Books">
+              <DbSource ConnectionRef="LibraryConnectionString (Settings)" DbObjectName="Library.dbo.BOOKS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Show_Available_Books" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="Show_Available_Books" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="Show_Available_Books">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT * FROM BOOKS WHERE AVAILABLE=1</CommandText>
@@ -126,6 +126,72 @@ WHERE  (ID = @ID); </CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="READERSTableAdapter" GeneratorDataComponentClassName="READERSTableAdapter" Name="READERS" UserDataComponentName="READERSTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LibraryConnectionString (Settings)" DbObjectName="Library.dbo.READERS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [READERS] WHERE (([NAME] = @Original_NAME) AND ([PHONE_NUMBER] = @Original_PHONE_NUMBER) AND ([ADDRESS] = @Original_ADDRESS))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_NAME" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NAME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_PHONE_NUMBER" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="PHONE_NUMBER" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_ADDRESS" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ADDRESS" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [READERS] ([NAME], [PHONE_NUMBER], [ADDRESS]) VALUES (@NAME, @PHONE_NUMBER, @ADDRESS);
+SELECT NAME, PHONE_NUMBER, ADDRESS FROM READERS WHERE (PHONE_NUMBER = @PHONE_NUMBER)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NAME" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@PHONE_NUMBER" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="PHONE_NUMBER" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@ADDRESS" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ADDRESS" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM READERS</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [READERS] SET [NAME] = @NAME, [PHONE_NUMBER] = @PHONE_NUMBER, [ADDRESS] = @ADDRESS WHERE (([NAME] = @Original_NAME) AND ([PHONE_NUMBER] = @Original_PHONE_NUMBER) AND ([ADDRESS] = @Original_ADDRESS));
+SELECT NAME, PHONE_NUMBER, ADDRESS FROM READERS WHERE (PHONE_NUMBER = @PHONE_NUMBER)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NAME" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@PHONE_NUMBER" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="PHONE_NUMBER" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@ADDRESS" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ADDRESS" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_NAME" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NAME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_PHONE_NUMBER" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="PHONE_NUMBER" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_ADDRESS" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ADDRESS" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+              <Mapping SourceColumn="PHONE_NUMBER" DataSetColumn="PHONE_NUMBER" />
+              <Mapping SourceColumn="ADDRESS" DataSetColumn="ADDRESS" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="LibraryConnectionString (Settings)" DbObjectName="Library.dbo.READERS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="SearchByNumber" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="SearchByNumber" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="SearchByNumber">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT NAME, PHONE_NUMBER, ADDRESS
+FROM     READERS
+WHERE  (PHONE_NUMBER = @NUMBER)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="NUMBER" ColumnName="PHONE_NUMBER" DataSourceName="Library.dbo.READERS" DataTypeServer="nvarchar(16)" DbType="String" Direction="Input" ParameterName="@NUMBER" Precision="0" ProviderType="NVarChar" Scale="0" Size="16" SourceColumn="PHONE_NUMBER" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -134,7 +200,7 @@ WHERE  (ID = @ID); </CommandText>
   <xs:element name="LibraryDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="LibraryDataSet" msprop:Generator_UserDSName="LibraryDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="BOOKS" msprop:Generator_TableClassName="BOOKSDataTable" msprop:Generator_TableVarName="tableBOOKS" msprop:Generator_TablePropName="BOOKS" msprop:Generator_RowDeletingName="BOOKSRowDeleting" msprop:Generator_RowChangingName="BOOKSRowChanging" msprop:Generator_RowEvHandlerName="BOOKSRowChangeEventHandler" msprop:Generator_RowDeletedName="BOOKSRowDeleted" msprop:Generator_UserTableName="BOOKS" msprop:Generator_RowChangedName="BOOKSRowChanged" msprop:Generator_RowEvArgName="BOOKSRowChangeEvent" msprop:Generator_RowClassName="BOOKSRow">
+        <xs:element name="BOOKS" msprop:Generator_TableClassName="BOOKSDataTable" msprop:Generator_TableVarName="tableBOOKS" msprop:Generator_RowChangedName="BOOKSRowChanged" msprop:Generator_TablePropName="BOOKS" msprop:Generator_RowDeletingName="BOOKSRowDeleting" msprop:Generator_RowChangingName="BOOKSRowChanging" msprop:Generator_RowEvHandlerName="BOOKSRowChangeEventHandler" msprop:Generator_RowDeletedName="BOOKSRowDeleted" msprop:Generator_RowClassName="BOOKSRow" msprop:Generator_UserTableName="BOOKS" msprop:Generator_RowEvArgName="BOOKSRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -163,11 +229,42 @@ WHERE  (ID = @ID); </CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="READERS" msprop:Generator_TableClassName="READERSDataTable" msprop:Generator_TableVarName="tableREADERS" msprop:Generator_TablePropName="READERS" msprop:Generator_RowDeletingName="READERSRowDeleting" msprop:Generator_RowChangingName="READERSRowChanging" msprop:Generator_RowEvHandlerName="READERSRowChangeEventHandler" msprop:Generator_RowDeletedName="READERSRowDeleted" msprop:Generator_UserTableName="READERS" msprop:Generator_RowChangedName="READERSRowChanged" msprop:Generator_RowEvArgName="READERSRowChangeEvent" msprop:Generator_RowClassName="READERSRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="64" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PHONE_NUMBER" msprop:Generator_ColumnVarNameInTable="columnPHONE_NUMBER" msprop:Generator_ColumnPropNameInRow="PHONE_NUMBER" msprop:Generator_ColumnPropNameInTable="PHONE_NUMBERColumn" msprop:Generator_UserColumnName="PHONE_NUMBER">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ADDRESS" msprop:Generator_ColumnVarNameInTable="columnADDRESS" msprop:Generator_ColumnPropNameInRow="ADDRESS" msprop:Generator_ColumnPropNameInTable="ADDRESSColumn" msprop:Generator_UserColumnName="ADDRESS">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="128" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:BOOKS" />
       <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="READERS_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:READERS" />
+      <xs:field xpath="mstns:PHONE_NUMBER" />
     </xs:unique>
   </xs:element>
 </xs:schema>

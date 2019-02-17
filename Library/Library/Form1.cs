@@ -22,5 +22,11 @@ namespace Library
             Books form = new Books();
             form.Show();
         }
+
+        private void readersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Readers form = new Readers();
+            form.Show();
+        }
     }
 }
