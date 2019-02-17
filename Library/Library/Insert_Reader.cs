@@ -27,6 +27,7 @@ namespace Library
             TXB_number.Text = rd.getNumber();
             TXB_address.Text = rd.getAddress();
             TXB_name.ReadOnly = true;
+            BTN_register.Text = "Update";
             
         }
 
