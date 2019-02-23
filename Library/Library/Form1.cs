@@ -28,5 +28,11 @@ namespace Library
             Readers form = new Readers();
             form.Show();
         }
+
+        private void registryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registry form = new Registry();
+            form.Show();
+        }
     }
 }

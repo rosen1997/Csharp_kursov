@@ -76,6 +76,7 @@
             this.registryToolStripMenuItem.Name = "registryToolStripMenuItem";
             this.registryToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.registryToolStripMenuItem.Text = "Registry";
+            this.registryToolStripMenuItem.Click += new System.EventHandler(this.registryToolStripMenuItem_Click);
             // 
             // Form1
             // 

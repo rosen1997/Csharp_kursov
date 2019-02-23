@@ -183,7 +183,7 @@ SELECT ID, NAME, PHONE_NUMBER, ADDRESS FROM READERS WHERE (ID = @ID)</CommandTex
               <Mapping SourceColumn="ADDRESS" DataSetColumn="ADDRESS" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="LibraryConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteByNum" Modifier="Public" Name="DeleteByNum" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteByNum">
+              <DbSource ConnectionRef="LibraryConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteByNum" Modifier="Public" Name="DeleteByNum" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteByNum">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM READERS
@@ -194,7 +194,7 @@ WHERE  (PHONE_NUMBER = @NUM)</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="LibraryConnectionString (Settings)" DbObjectName="Library.dbo.READERS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="SearchByNumber" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="SearchByNumber" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="SearchByNumber">
+              <DbSource ConnectionRef="LibraryConnectionString (Settings)" DbObjectName="Library.dbo.READERS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="SearchByNumber" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="SearchByNumber" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="SearchByNumber">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT ID, NAME, PHONE_NUMBER, ADDRESS
@@ -222,6 +222,69 @@ WHERE  (ID = @ID);  </CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="REGISTRYTableAdapter" GeneratorDataComponentClassName="REGISTRYTableAdapter" Name="REGISTRY" UserDataComponentName="REGISTRYTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LibraryConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT REGISTRY.ID, REGISTRY.BOOK_ID, BOOKS.TITLE AS Title, READERS.PHONE_NUMBER, READERS.NAME AS Name
+FROM     REGISTRY INNER JOIN
+                  READERS ON REGISTRY.READER_ID = READERS.ID INNER JOIN
+                  BOOKS ON REGISTRY.BOOK_ID = BOOKS.ID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="BOOK_ID" DataSetColumn="BOOK_ID" />
+              <Mapping SourceColumn="Title" DataSetColumn="Title" />
+              <Mapping SourceColumn="PHONE_NUMBER" DataSetColumn="PHONE_NUMBER" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="LibraryConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ReturnBook" Modifier="Public" Name="ReturnBook" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="ReturnBook">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM REGISTRY
+WHERE  (ID = @ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="ID" ColumnName="ID" DataSourceName="Library.dbo.REGISTRY" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="LibraryConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="SearchByBookID" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="SearchByBookID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="SearchByBookID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT REGISTRY.ID, REGISTRY.BOOK_ID, BOOKS.TITLE AS Title, READERS.PHONE_NUMBER, READERS.NAME AS Name
+FROM     REGISTRY INNER JOIN
+                  READERS ON REGISTRY.READER_ID = READERS.ID INNER JOIN
+                  BOOKS ON REGISTRY.BOOK_ID = BOOKS.ID
+WHERE  (REGISTRY.BOOK_ID = @ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="ID" ColumnName="BOOK_ID" DataSourceName="Library.dbo.REGISTRY" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="BOOK_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="LibraryConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="SearchByNum" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="SearchByNum" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="SearchByNum">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT REGISTRY.ID, REGISTRY.BOOK_ID, BOOKS.TITLE AS Title, READERS.PHONE_NUMBER, READERS.NAME AS Name
+FROM     REGISTRY INNER JOIN
+                  READERS ON REGISTRY.READER_ID = READERS.ID INNER JOIN
+                  BOOKS ON REGISTRY.BOOK_ID = BOOKS.ID
+WHERE  (READERS.PHONE_NUMBER = @NUM)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="NUM" ColumnName="PHONE_NUMBER" DataSourceName="Library.dbo.READERS" DataTypeServer="nvarchar(16)" DbType="String" Direction="Input" ParameterName="@NUM" Precision="0" ProviderType="NVarChar" Scale="0" Size="16" SourceColumn="PHONE_NUMBER" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -230,7 +293,7 @@ WHERE  (ID = @ID);  </CommandText>
   <xs:element name="LibraryDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="LibraryDataSet" msprop:Generator_UserDSName="LibraryDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="BOOKS" msprop:Generator_TableClassName="BOOKSDataTable" msprop:Generator_TableVarName="tableBOOKS" msprop:Generator_RowChangedName="BOOKSRowChanged" msprop:Generator_TablePropName="BOOKS" msprop:Generator_RowDeletingName="BOOKSRowDeleting" msprop:Generator_RowChangingName="BOOKSRowChanging" msprop:Generator_RowEvHandlerName="BOOKSRowChangeEventHandler" msprop:Generator_RowDeletedName="BOOKSRowDeleted" msprop:Generator_RowClassName="BOOKSRow" msprop:Generator_UserTableName="BOOKS" msprop:Generator_RowEvArgName="BOOKSRowChangeEvent">
+        <xs:element name="BOOKS" msprop:Generator_TableClassName="BOOKSDataTable" msprop:Generator_TableVarName="tableBOOKS" msprop:Generator_TablePropName="BOOKS" msprop:Generator_RowDeletingName="BOOKSRowDeleting" msprop:Generator_RowChangingName="BOOKSRowChanging" msprop:Generator_RowEvHandlerName="BOOKSRowChangeEventHandler" msprop:Generator_RowDeletedName="BOOKSRowDeleted" msprop:Generator_UserTableName="BOOKS" msprop:Generator_RowChangedName="BOOKSRowChanged" msprop:Generator_RowEvArgName="BOOKSRowChangeEvent" msprop:Generator_RowClassName="BOOKSRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -259,7 +322,7 @@ WHERE  (ID = @ID);  </CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="READERS" msprop:Generator_TableClassName="READERSDataTable" msprop:Generator_TableVarName="tableREADERS" msprop:Generator_TablePropName="READERS" msprop:Generator_RowDeletingName="READERSRowDeleting" msprop:Generator_RowChangingName="READERSRowChanging" msprop:Generator_RowEvHandlerName="READERSRowChangeEventHandler" msprop:Generator_RowDeletedName="READERSRowDeleted" msprop:Generator_UserTableName="READERS" msprop:Generator_RowChangedName="READERSRowChanged" msprop:Generator_RowEvArgName="READERSRowChangeEvent" msprop:Generator_RowClassName="READERSRow">
+        <xs:element name="READERS" msprop:Generator_TableClassName="READERSDataTable" msprop:Generator_TableVarName="tableREADERS" msprop:Generator_RowChangedName="READERSRowChanged" msprop:Generator_TablePropName="READERS" msprop:Generator_RowDeletingName="READERSRowDeleting" msprop:Generator_RowChangingName="READERSRowChanging" msprop:Generator_RowEvHandlerName="READERSRowChangeEventHandler" msprop:Generator_RowDeletedName="READERSRowDeleted" msprop:Generator_RowClassName="READERSRow" msprop:Generator_UserTableName="READERS" msprop:Generator_RowEvArgName="READERSRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -287,6 +350,35 @@ WHERE  (ID = @ID);  </CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="REGISTRY" msprop:Generator_TableClassName="REGISTRYDataTable" msprop:Generator_TableVarName="tableREGISTRY" msprop:Generator_TablePropName="REGISTRY" msprop:Generator_RowDeletingName="REGISTRYRowDeleting" msprop:Generator_RowChangingName="REGISTRYRowChanging" msprop:Generator_RowEvHandlerName="REGISTRYRowChangeEventHandler" msprop:Generator_RowDeletedName="REGISTRYRowDeleted" msprop:Generator_UserTableName="REGISTRY" msprop:Generator_RowChangedName="REGISTRYRowChanged" msprop:Generator_RowEvArgName="REGISTRYRowChangeEvent" msprop:Generator_RowClassName="REGISTRYRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="BOOK_ID" msprop:Generator_ColumnVarNameInTable="columnBOOK_ID" msprop:Generator_ColumnPropNameInRow="BOOK_ID" msprop:Generator_ColumnPropNameInTable="BOOK_IDColumn" msprop:Generator_UserColumnName="BOOK_ID" type="xs:int" />
+              <xs:element name="Title" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_UserColumnName="Title">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PHONE_NUMBER" msprop:Generator_ColumnVarNameInTable="columnPHONE_NUMBER" msprop:Generator_ColumnPropNameInRow="PHONE_NUMBER" msprop:Generator_ColumnPropNameInTable="PHONE_NUMBERColumn" msprop:Generator_UserColumnName="PHONE_NUMBER">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="64" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -295,6 +387,10 @@ WHERE  (ID = @ID);  </CommandText>
     </xs:unique>
     <xs:unique name="READERS_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:READERS" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="REGISTRY_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:REGISTRY" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
   </xs:element>
