@@ -87,5 +87,41 @@ namespace Library
 
             }
         }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            bool bAvailable;// =(bool)booksTableAdapter1.GetAvailability(22);
+
+            CRegistry reg;
+            using (var form = new Insert_Reg())
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    reg = form.rg;
+                    bAvailable = (bool)this.booksTableAdapter1.GetAvailability(reg.getBookID());
+
+                    if (bAvailable == true)
+                    {
+
+                        try
+                        {
+                            this.rEGISTRYTableAdapter.InsertQuery(reg.getBookID(), reg.getReaderID());
+                            this.booksTableAdapter1.UpdateAvailable(false, reg.getBookID());
+                        }
+                        catch (System.Exception ex)
+                        {
+                            System.Windows.Forms.MessageBox.Show(ex.Message);
+                        }
+
+                        toolStripButton1_Click(sender, e);
+                    }
+                    else if(bAvailable==false)
+                    {
+                        MessageBox.Show("Book not available!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+            }
+        }
     }
 }

@@ -35,6 +35,16 @@
             this.iDToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.iDToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.searchByBookIDToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.searchByNumToolStrip = new System.Windows.Forms.ToolStrip();
+            this.nUMToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.nUMToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.searchByNumToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bOOKIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,21 +53,14 @@
             this.rEGISTRYBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.libraryDataSet = new Library.LibraryDataSet();
             this.rEGISTRYTableAdapter = new Library.LibraryDataSetTableAdapters.REGISTRYTableAdapter();
-            this.searchByNumToolStrip = new System.Windows.Forms.ToolStrip();
-            this.nUMToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.nUMToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.searchByNumToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.booksTableAdapter1 = new Library.LibraryDataSetTableAdapters.BOOKSTableAdapter();
+            this.libraryDataSet1 = new Library.LibraryDataSet();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.searchByBookIDToolStrip.SuspendLayout();
+            this.searchByNumToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rEGISTRYBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet)).BeginInit();
-            this.searchByNumToolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -118,6 +121,83 @@
             this.searchByBookIDToolStripButton.Text = "Search";
             this.searchByBookIDToolStripButton.Click += new System.EventHandler(this.searchByBookIDToolStripButton_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(62, 24);
+            this.toolStripButton1.Text = "Refresh";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(92, 24);
+            this.toolStripButton2.Text = "Take a Book";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(106, 24);
+            this.toolStripButton3.Text = "Return a Book";
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            // 
+            // searchByNumToolStrip
+            // 
+            this.searchByNumToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.searchByNumToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nUMToolStripLabel,
+            this.nUMToolStripTextBox,
+            this.searchByNumToolStripButton});
+            this.searchByNumToolStrip.Location = new System.Drawing.Point(0, 27);
+            this.searchByNumToolStrip.Name = "searchByNumToolStrip";
+            this.searchByNumToolStrip.Size = new System.Drawing.Size(706, 27);
+            this.searchByNumToolStrip.TabIndex = 2;
+            this.searchByNumToolStrip.Text = "searchByNumToolStrip";
+            // 
+            // nUMToolStripLabel
+            // 
+            this.nUMToolStripLabel.Name = "nUMToolStripLabel";
+            this.nUMToolStripLabel.Size = new System.Drawing.Size(66, 24);
+            this.nUMToolStripLabel.Text = "Number:";
+            // 
+            // nUMToolStripTextBox
+            // 
+            this.nUMToolStripTextBox.Name = "nUMToolStripTextBox";
+            this.nUMToolStripTextBox.Size = new System.Drawing.Size(100, 27);
+            // 
+            // searchByNumToolStripButton
+            // 
+            this.searchByNumToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.searchByNumToolStripButton.Name = "searchByNumToolStripButton";
+            this.searchByNumToolStripButton.Size = new System.Drawing.Size(57, 24);
+            this.searchByNumToolStripButton.Text = "Search";
+            this.searchByNumToolStripButton.Click += new System.EventHandler(this.searchByNumToolStripButton_Click);
+            // 
             // iDDataGridViewTextBoxColumn
             // 
             this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
@@ -167,81 +247,14 @@
             // 
             this.rEGISTRYTableAdapter.ClearBeforeFill = true;
             // 
-            // searchByNumToolStrip
+            // booksTableAdapter1
             // 
-            this.searchByNumToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.searchByNumToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nUMToolStripLabel,
-            this.nUMToolStripTextBox,
-            this.searchByNumToolStripButton});
-            this.searchByNumToolStrip.Location = new System.Drawing.Point(0, 27);
-            this.searchByNumToolStrip.Name = "searchByNumToolStrip";
-            this.searchByNumToolStrip.Size = new System.Drawing.Size(706, 27);
-            this.searchByNumToolStrip.TabIndex = 2;
-            this.searchByNumToolStrip.Text = "searchByNumToolStrip";
+            this.booksTableAdapter1.ClearBeforeFill = true;
             // 
-            // nUMToolStripLabel
+            // libraryDataSet1
             // 
-            this.nUMToolStripLabel.Name = "nUMToolStripLabel";
-            this.nUMToolStripLabel.Size = new System.Drawing.Size(66, 24);
-            this.nUMToolStripLabel.Text = "Number:";
-            // 
-            // nUMToolStripTextBox
-            // 
-            this.nUMToolStripTextBox.Name = "nUMToolStripTextBox";
-            this.nUMToolStripTextBox.Size = new System.Drawing.Size(100, 27);
-            // 
-            // searchByNumToolStripButton
-            // 
-            this.searchByNumToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.searchByNumToolStripButton.Name = "searchByNumToolStripButton";
-            this.searchByNumToolStripButton.Size = new System.Drawing.Size(57, 24);
-            this.searchByNumToolStripButton.Text = "Search";
-            this.searchByNumToolStripButton.Click += new System.EventHandler(this.searchByNumToolStripButton_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(62, 24);
-            this.toolStripButton1.Text = "Refresh";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(92, 24);
-            this.toolStripButton2.Text = "Take a Book";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 27);
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(106, 24);
-            this.toolStripButton3.Text = "Return a Book";
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            this.libraryDataSet1.DataSetName = "LibraryDataSet";
+            this.libraryDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Registry
             // 
@@ -257,10 +270,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.searchByBookIDToolStrip.ResumeLayout(false);
             this.searchByBookIDToolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rEGISTRYBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet)).EndInit();
             this.searchByNumToolStrip.ResumeLayout(false);
             this.searchByNumToolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rEGISTRYBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,5 +305,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private LibraryDataSetTableAdapters.BOOKSTableAdapter booksTableAdapter1;
+        private LibraryDataSet libraryDataSet1;
     }
 }
