@@ -40,5 +40,18 @@ namespace Library
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private void TXB_number_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Registry.onlyNums(e);
+        }
+
+        private void TXB_name_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

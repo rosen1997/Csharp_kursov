@@ -31,6 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registry));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bOOKIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pHONENUMBERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rEGISTRYBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.libraryDataSet = new Library.LibraryDataSet();
             this.searchByBookIDToolStrip = new System.Windows.Forms.ToolStrip();
             this.iDToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.iDToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
@@ -45,21 +52,14 @@
             this.nUMToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.nUMToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.searchByNumToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bOOKIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pHONENUMBERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rEGISTRYBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.libraryDataSet = new Library.LibraryDataSet();
             this.rEGISTRYTableAdapter = new Library.LibraryDataSetTableAdapters.REGISTRYTableAdapter();
             this.booksTableAdapter1 = new Library.LibraryDataSetTableAdapters.BOOKSTableAdapter();
             this.libraryDataSet1 = new Library.LibraryDataSet();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.searchByBookIDToolStrip.SuspendLayout();
-            this.searchByNumToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rEGISTRYBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet)).BeginInit();
+            this.searchByBookIDToolStrip.SuspendLayout();
+            this.searchByNumToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,6 +82,51 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(674, 347);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bOOKIDDataGridViewTextBoxColumn
+            // 
+            this.bOOKIDDataGridViewTextBoxColumn.DataPropertyName = "BOOK_ID";
+            this.bOOKIDDataGridViewTextBoxColumn.HeaderText = "BOOK_ID";
+            this.bOOKIDDataGridViewTextBoxColumn.Name = "bOOKIDDataGridViewTextBoxColumn";
+            this.bOOKIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // titleDataGridViewTextBoxColumn
+            // 
+            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
+            this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
+            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            this.titleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pHONENUMBERDataGridViewTextBoxColumn
+            // 
+            this.pHONENUMBERDataGridViewTextBoxColumn.DataPropertyName = "PHONE_NUMBER";
+            this.pHONENUMBERDataGridViewTextBoxColumn.HeaderText = "PHONE_NUMBER";
+            this.pHONENUMBERDataGridViewTextBoxColumn.Name = "pHONENUMBERDataGridViewTextBoxColumn";
+            this.pHONENUMBERDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // rEGISTRYBindingSource
+            // 
+            this.rEGISTRYBindingSource.DataMember = "REGISTRY";
+            this.rEGISTRYBindingSource.DataSource = this.libraryDataSet;
+            // 
+            // libraryDataSet
+            // 
+            this.libraryDataSet.DataSetName = "LibraryDataSet";
+            this.libraryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // searchByBookIDToolStrip
             // 
@@ -112,6 +157,7 @@
             // 
             this.iDToolStripTextBox.Name = "iDToolStripTextBox";
             this.iDToolStripTextBox.Size = new System.Drawing.Size(100, 27);
+            this.iDToolStripTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.iDToolStripTextBox_KeyPress);
             // 
             // searchByBookIDToolStripButton
             // 
@@ -187,8 +233,10 @@
             // 
             // nUMToolStripTextBox
             // 
+            this.nUMToolStripTextBox.MaxLength = 10;
             this.nUMToolStripTextBox.Name = "nUMToolStripTextBox";
             this.nUMToolStripTextBox.Size = new System.Drawing.Size(100, 27);
+            this.nUMToolStripTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nUMToolStripTextBox_KeyPress);
             // 
             // searchByNumToolStripButton
             // 
@@ -197,51 +245,6 @@
             this.searchByNumToolStripButton.Size = new System.Drawing.Size(57, 24);
             this.searchByNumToolStripButton.Text = "Search";
             this.searchByNumToolStripButton.Click += new System.EventHandler(this.searchByNumToolStripButton_Click);
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bOOKIDDataGridViewTextBoxColumn
-            // 
-            this.bOOKIDDataGridViewTextBoxColumn.DataPropertyName = "BOOK_ID";
-            this.bOOKIDDataGridViewTextBoxColumn.HeaderText = "BOOK_ID";
-            this.bOOKIDDataGridViewTextBoxColumn.Name = "bOOKIDDataGridViewTextBoxColumn";
-            this.bOOKIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // titleDataGridViewTextBoxColumn
-            // 
-            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
-            this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
-            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
-            this.titleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pHONENUMBERDataGridViewTextBoxColumn
-            // 
-            this.pHONENUMBERDataGridViewTextBoxColumn.DataPropertyName = "PHONE_NUMBER";
-            this.pHONENUMBERDataGridViewTextBoxColumn.HeaderText = "PHONE_NUMBER";
-            this.pHONENUMBERDataGridViewTextBoxColumn.Name = "pHONENUMBERDataGridViewTextBoxColumn";
-            this.pHONENUMBERDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // rEGISTRYBindingSource
-            // 
-            this.rEGISTRYBindingSource.DataMember = "REGISTRY";
-            this.rEGISTRYBindingSource.DataSource = this.libraryDataSet;
-            // 
-            // libraryDataSet
-            // 
-            this.libraryDataSet.DataSetName = "LibraryDataSet";
-            this.libraryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // rEGISTRYTableAdapter
             // 
@@ -264,16 +267,18 @@
             this.Controls.Add(this.searchByNumToolStrip);
             this.Controls.Add(this.searchByBookIDToolStrip);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "Registry";
             this.Text = "Registry";
             this.Load += new System.EventHandler(this.Registry_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rEGISTRYBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet)).EndInit();
             this.searchByBookIDToolStrip.ResumeLayout(false);
             this.searchByBookIDToolStrip.PerformLayout();
             this.searchByNumToolStrip.ResumeLayout(false);
             this.searchByNumToolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rEGISTRYBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -25,5 +25,15 @@ namespace Library
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private void TXB_bookID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Registry.onlyNums(e);
+        }
+
+        private void TXB_readerID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Registry.onlyNums(e);
+        }
     }
 }

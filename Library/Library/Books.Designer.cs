@@ -158,6 +158,7 @@
             // 
             // titleToolStripTextBox
             // 
+            this.titleToolStripTextBox.MaxLength = 32;
             this.titleToolStripTextBox.Name = "titleToolStripTextBox";
             this.titleToolStripTextBox.Size = new System.Drawing.Size(100, 27);
             // 
@@ -271,6 +272,8 @@
             this.ClientSize = new System.Drawing.Size(787, 442);
             this.Controls.Add(this.searchToolStrip);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "Books";
             this.Text = "Books";
             this.Load += new System.EventHandler(this.Books_Load);

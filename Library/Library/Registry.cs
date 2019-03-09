@@ -123,5 +123,23 @@ namespace Library
                 }
             }
         }
+
+        public static void onlyNums(KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void nUMToolStripTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            onlyNums(e);
+        }
+
+        private void iDToolStripTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            onlyNums(e);
+        }
     }
 }

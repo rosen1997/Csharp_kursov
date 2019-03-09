@@ -107,7 +107,7 @@ namespace Library
             {
                 if (oneRow.Selected)
                 {
-                    int id =Convert.ToInt16(oneRow.Cells[0].Value);
+                    int id = Convert.ToInt16(oneRow.Cells[0].Value);
                     string name = oneRow.Cells[1].Value.ToString();
                     string num = oneRow.Cells[2].Value.ToString();
                     string address = oneRow.Cells[3].Value.ToString();
@@ -136,6 +136,11 @@ namespace Library
 
             }
            
+        }
+
+        private void nUMBERToolStripTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Registry.onlyNums(e);
         }
 
     }

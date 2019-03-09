@@ -40,6 +40,7 @@
             this.TXB_bookID.Size = new System.Drawing.Size(153, 22);
             this.TXB_bookID.TabIndex = 0;
             this.TXB_bookID.Text = "Book ID";
+            this.TXB_bookID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXB_bookID_KeyPress);
             // 
             // TXB_readerID
             // 
@@ -48,6 +49,7 @@
             this.TXB_readerID.Size = new System.Drawing.Size(153, 22);
             this.TXB_readerID.TabIndex = 1;
             this.TXB_readerID.Text = "Reader ID";
+            this.TXB_readerID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXB_readerID_KeyPress);
             // 
             // BTN_take
             // 
@@ -67,6 +69,8 @@
             this.Controls.Add(this.BTN_take);
             this.Controls.Add(this.TXB_readerID);
             this.Controls.Add(this.TXB_bookID);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "Insert_Reg";
             this.Text = "Insert_Reg";
             this.ResumeLayout(false);

@@ -50,12 +50,14 @@
             this.rEADERSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.libraryDataSet = new Library.LibraryDataSet();
             this.rEADERSTableAdapter = new Library.LibraryDataSetTableAdapters.READERSTableAdapter();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.searchByNumberToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rEADERSBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rEADERSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // searchByNumberToolStrip
@@ -81,8 +83,10 @@
             // 
             // nUMBERToolStripTextBox
             // 
+            this.nUMBERToolStripTextBox.MaxLength = 10;
             this.nUMBERToolStripTextBox.Name = "nUMBERToolStripTextBox";
             this.nUMBERToolStripTextBox.Size = new System.Drawing.Size(100, 27);
+            this.nUMBERToolStripTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nUMBERToolStripTextBox_KeyPress);
             // 
             // searchByNumberToolStripButton
             // 
@@ -210,6 +214,10 @@
             // 
             this.rEADERSTableAdapter.ClearBeforeFill = true;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // Readers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -217,6 +225,8 @@
             this.ClientSize = new System.Drawing.Size(580, 454);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.searchByNumberToolStrip);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "Readers";
             this.Text = "Readers";
             this.Load += new System.EventHandler(this.Readers_Load);
@@ -227,6 +237,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rEADERSBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,5 +265,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nAMEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pHONENUMBERDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn aDDRESSDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

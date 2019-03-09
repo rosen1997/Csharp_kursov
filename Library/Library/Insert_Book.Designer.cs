@@ -38,6 +38,7 @@
             // TXB_title
             // 
             this.TXB_title.Location = new System.Drawing.Point(47, 22);
+            this.TXB_title.MaxLength = 32;
             this.TXB_title.Name = "TXB_title";
             this.TXB_title.Size = new System.Drawing.Size(143, 22);
             this.TXB_title.TabIndex = 0;
@@ -46,6 +47,7 @@
             // TXB_author
             // 
             this.TXB_author.Location = new System.Drawing.Point(47, 50);
+            this.TXB_author.MaxLength = 32;
             this.TXB_author.Name = "TXB_author";
             this.TXB_author.Size = new System.Drawing.Size(143, 22);
             this.TXB_author.TabIndex = 1;
@@ -54,6 +56,7 @@
             // TXB_publisher
             // 
             this.TXB_publisher.Location = new System.Drawing.Point(47, 78);
+            this.TXB_publisher.MaxLength = 32;
             this.TXB_publisher.Name = "TXB_publisher";
             this.TXB_publisher.Size = new System.Drawing.Size(143, 22);
             this.TXB_publisher.TabIndex = 2;
@@ -89,6 +92,8 @@
             this.Controls.Add(this.TXB_publisher);
             this.Controls.Add(this.TXB_author);
             this.Controls.Add(this.TXB_title);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "Insert_Book";
             this.Text = "Insert sBook";
             this.Load += new System.EventHandler(this.Insert_Book_Load);

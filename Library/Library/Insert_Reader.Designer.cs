@@ -37,22 +37,27 @@
             // TXB_name
             // 
             this.TXB_name.Location = new System.Drawing.Point(56, 28);
+            this.TXB_name.MaxLength = 64;
             this.TXB_name.Name = "TXB_name";
             this.TXB_name.Size = new System.Drawing.Size(151, 22);
             this.TXB_name.TabIndex = 0;
             this.TXB_name.Text = "Name";
+            this.TXB_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXB_name_KeyPress);
             // 
             // TXB_number
             // 
             this.TXB_number.Location = new System.Drawing.Point(56, 56);
+            this.TXB_number.MaxLength = 10;
             this.TXB_number.Name = "TXB_number";
             this.TXB_number.Size = new System.Drawing.Size(151, 22);
             this.TXB_number.TabIndex = 1;
             this.TXB_number.Text = "Number";
+            this.TXB_number.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXB_number_KeyPress);
             // 
             // TXB_address
             // 
             this.TXB_address.Location = new System.Drawing.Point(56, 84);
+            this.TXB_address.MaxLength = 128;
             this.TXB_address.Multiline = true;
             this.TXB_address.Name = "TXB_address";
             this.TXB_address.Size = new System.Drawing.Size(151, 60);
@@ -78,6 +83,8 @@
             this.Controls.Add(this.TXB_address);
             this.Controls.Add(this.TXB_number);
             this.Controls.Add(this.TXB_name);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "Insert_Reader";
             this.Text = "Insert_Reader";
             this.ResumeLayout(false);
