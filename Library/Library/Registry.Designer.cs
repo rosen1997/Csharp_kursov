@@ -76,11 +76,12 @@
             this.pHONENUMBERDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.rEGISTRYBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 91);
+            this.dataGridView1.Location = new System.Drawing.Point(9, 74);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(674, 347);
+            this.dataGridView1.Size = new System.Drawing.Size(506, 282);
             this.dataGridView1.TabIndex = 0;
             // 
             // iDDataGridViewTextBoxColumn
@@ -130,6 +131,9 @@
             // 
             // searchByBookIDToolStrip
             // 
+            this.searchByBookIDToolStrip.BackColor = System.Drawing.Color.Transparent;
+            this.searchByBookIDToolStrip.BackgroundImage = global::Library.Properties.Resources.FL_Web_design_background_rustic_brown;
+            this.searchByBookIDToolStrip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.searchByBookIDToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.searchByBookIDToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.iDToolStripLabel,
@@ -143,106 +147,117 @@
             this.toolStripButton3});
             this.searchByBookIDToolStrip.Location = new System.Drawing.Point(0, 0);
             this.searchByBookIDToolStrip.Name = "searchByBookIDToolStrip";
-            this.searchByBookIDToolStrip.Size = new System.Drawing.Size(706, 27);
+            this.searchByBookIDToolStrip.Size = new System.Drawing.Size(530, 31);
             this.searchByBookIDToolStrip.TabIndex = 1;
             this.searchByBookIDToolStrip.Text = "searchByBookIDToolStrip";
             // 
             // iDToolStripLabel
             // 
+            this.iDToolStripLabel.Font = new System.Drawing.Font("Agency FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iDToolStripLabel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.iDToolStripLabel.Name = "iDToolStripLabel";
-            this.iDToolStripLabel.Size = new System.Drawing.Size(69, 24);
+            this.iDToolStripLabel.Size = new System.Drawing.Size(60, 28);
             this.iDToolStripLabel.Text = "Book ID: ";
             // 
             // iDToolStripTextBox
             // 
             this.iDToolStripTextBox.Name = "iDToolStripTextBox";
-            this.iDToolStripTextBox.Size = new System.Drawing.Size(100, 27);
+            this.iDToolStripTextBox.Size = new System.Drawing.Size(76, 31);
             this.iDToolStripTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.iDToolStripTextBox_KeyPress);
             // 
             // searchByBookIDToolStripButton
             // 
             this.searchByBookIDToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.searchByBookIDToolStripButton.Font = new System.Drawing.Font("Agency FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchByBookIDToolStripButton.Name = "searchByBookIDToolStripButton";
-            this.searchByBookIDToolStripButton.Size = new System.Drawing.Size(57, 24);
+            this.searchByBookIDToolStripButton.Size = new System.Drawing.Size(56, 28);
             this.searchByBookIDToolStripButton.Text = "Search";
             this.searchByBookIDToolStripButton.Click += new System.EventHandler(this.searchByBookIDToolStripButton_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Font = new System.Drawing.Font("Agency FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(62, 24);
+            this.toolStripButton1.Size = new System.Drawing.Size(59, 28);
             this.toolStripButton1.Text = "Refresh";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // toolStripButton2
             // 
             this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton2.Font = new System.Drawing.Font("Agency FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(92, 24);
+            this.toolStripButton2.Size = new System.Drawing.Size(82, 28);
             this.toolStripButton2.Text = "Take a Book";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 31);
             // 
             // toolStripButton3
             // 
             this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton3.Font = new System.Drawing.Font("Agency FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(106, 24);
+            this.toolStripButton3.Size = new System.Drawing.Size(96, 28);
             this.toolStripButton3.Text = "Return a Book";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // searchByNumToolStrip
             // 
+            this.searchByNumToolStrip.BackColor = System.Drawing.Color.Transparent;
+            this.searchByNumToolStrip.BackgroundImage = global::Library.Properties.Resources.FL_Web_design_background_rustic_brown;
+            this.searchByNumToolStrip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.searchByNumToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.searchByNumToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nUMToolStripLabel,
             this.nUMToolStripTextBox,
             this.searchByNumToolStripButton});
-            this.searchByNumToolStrip.Location = new System.Drawing.Point(0, 27);
+            this.searchByNumToolStrip.Location = new System.Drawing.Point(0, 31);
             this.searchByNumToolStrip.Name = "searchByNumToolStrip";
-            this.searchByNumToolStrip.Size = new System.Drawing.Size(706, 27);
+            this.searchByNumToolStrip.Size = new System.Drawing.Size(530, 31);
             this.searchByNumToolStrip.TabIndex = 2;
             this.searchByNumToolStrip.Text = "searchByNumToolStrip";
             // 
             // nUMToolStripLabel
             // 
+            this.nUMToolStripLabel.Font = new System.Drawing.Font("Agency FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nUMToolStripLabel.Name = "nUMToolStripLabel";
-            this.nUMToolStripLabel.Size = new System.Drawing.Size(66, 24);
+            this.nUMToolStripLabel.Size = new System.Drawing.Size(59, 28);
             this.nUMToolStripLabel.Text = "Number:";
             // 
             // nUMToolStripTextBox
             // 
             this.nUMToolStripTextBox.MaxLength = 10;
             this.nUMToolStripTextBox.Name = "nUMToolStripTextBox";
-            this.nUMToolStripTextBox.Size = new System.Drawing.Size(100, 27);
+            this.nUMToolStripTextBox.Size = new System.Drawing.Size(76, 31);
             this.nUMToolStripTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nUMToolStripTextBox_KeyPress);
             // 
             // searchByNumToolStripButton
             // 
             this.searchByNumToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.searchByNumToolStripButton.Font = new System.Drawing.Font("Agency FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchByNumToolStripButton.Name = "searchByNumToolStripButton";
-            this.searchByNumToolStripButton.Size = new System.Drawing.Size(57, 24);
+            this.searchByNumToolStripButton.Size = new System.Drawing.Size(56, 28);
             this.searchByNumToolStripButton.Text = "Search";
             this.searchByNumToolStripButton.Click += new System.EventHandler(this.searchByNumToolStripButton_Click);
             // 
@@ -261,13 +276,16 @@
             // 
             // Registry
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(706, 458);
+            this.BackgroundImage = global::Library.Properties.Resources.FL_Web_design_background_rustic_brown;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(530, 372);
             this.Controls.Add(this.searchByNumToolStrip);
             this.Controls.Add(this.searchByBookIDToolStrip);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "Registry";
             this.Text = "Registry";

@@ -62,6 +62,9 @@
             // 
             // searchByNumberToolStrip
             // 
+            this.searchByNumberToolStrip.BackColor = System.Drawing.Color.Transparent;
+            this.searchByNumberToolStrip.BackgroundImage = global::Library.Properties.Resources.FL_Web_design_background_rustic_brown;
+            this.searchByNumberToolStrip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.searchByNumberToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.searchByNumberToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nUMBERToolStripLabel,
@@ -71,35 +74,37 @@
             this.TDB_tools});
             this.searchByNumberToolStrip.Location = new System.Drawing.Point(0, 0);
             this.searchByNumberToolStrip.Name = "searchByNumberToolStrip";
-            this.searchByNumberToolStrip.Size = new System.Drawing.Size(580, 27);
+            this.searchByNumberToolStrip.Size = new System.Drawing.Size(435, 31);
             this.searchByNumberToolStrip.TabIndex = 1;
             this.searchByNumberToolStrip.Text = "searchByNumberToolStrip";
             // 
             // nUMBERToolStripLabel
             // 
+            this.nUMBERToolStripLabel.Font = new System.Drawing.Font("Agency FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nUMBERToolStripLabel.Name = "nUMBERToolStripLabel";
-            this.nUMBERToolStripLabel.Size = new System.Drawing.Size(72, 24);
+            this.nUMBERToolStripLabel.Size = new System.Drawing.Size(61, 28);
             this.nUMBERToolStripLabel.Text = "NUMBER:";
             // 
             // nUMBERToolStripTextBox
             // 
             this.nUMBERToolStripTextBox.MaxLength = 10;
             this.nUMBERToolStripTextBox.Name = "nUMBERToolStripTextBox";
-            this.nUMBERToolStripTextBox.Size = new System.Drawing.Size(100, 27);
+            this.nUMBERToolStripTextBox.Size = new System.Drawing.Size(76, 31);
             this.nUMBERToolStripTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nUMBERToolStripTextBox_KeyPress);
             // 
             // searchByNumberToolStripButton
             // 
             this.searchByNumberToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.searchByNumberToolStripButton.Font = new System.Drawing.Font("Agency FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchByNumberToolStripButton.Name = "searchByNumberToolStripButton";
-            this.searchByNumberToolStripButton.Size = new System.Drawing.Size(57, 24);
+            this.searchByNumberToolStripButton.Size = new System.Drawing.Size(56, 28);
             this.searchByNumberToolStripButton.Text = "Search";
             this.searchByNumberToolStripButton.Click += new System.EventHandler(this.searchByNumberToolStripButton_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // TDB_tools
             // 
@@ -109,37 +114,38 @@
             this.registerAReaderToolStripMenuItem,
             this.removeAReaderToolStripMenuItem,
             this.updateAReaderToolStripMenuItem});
+            this.TDB_tools.Font = new System.Drawing.Font("Agency FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TDB_tools.Image = ((System.Drawing.Image)(resources.GetObject("TDB_tools.Image")));
             this.TDB_tools.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TDB_tools.Name = "TDB_tools";
-            this.TDB_tools.Size = new System.Drawing.Size(58, 24);
+            this.TDB_tools.Size = new System.Drawing.Size(52, 28);
             this.TDB_tools.Text = "Tools";
             // 
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(184, 28);
             this.refreshToolStripMenuItem.Text = "Refresh";
             this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // registerAReaderToolStripMenuItem
             // 
             this.registerAReaderToolStripMenuItem.Name = "registerAReaderToolStripMenuItem";
-            this.registerAReaderToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.registerAReaderToolStripMenuItem.Size = new System.Drawing.Size(184, 28);
             this.registerAReaderToolStripMenuItem.Text = "Register a reader";
             this.registerAReaderToolStripMenuItem.Click += new System.EventHandler(this.registerAReaderToolStripMenuItem_Click);
             // 
             // removeAReaderToolStripMenuItem
             // 
             this.removeAReaderToolStripMenuItem.Name = "removeAReaderToolStripMenuItem";
-            this.removeAReaderToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.removeAReaderToolStripMenuItem.Size = new System.Drawing.Size(184, 28);
             this.removeAReaderToolStripMenuItem.Text = "Remove a reader";
             this.removeAReaderToolStripMenuItem.Click += new System.EventHandler(this.removeAReaderToolStripMenuItem_Click);
             // 
             // updateAReaderToolStripMenuItem
             // 
             this.updateAReaderToolStripMenuItem.Name = "updateAReaderToolStripMenuItem";
-            this.updateAReaderToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.updateAReaderToolStripMenuItem.Size = new System.Drawing.Size(184, 28);
             this.updateAReaderToolStripMenuItem.Text = "Update a reader";
             this.updateAReaderToolStripMenuItem.Click += new System.EventHandler(this.updateAReaderToolStripMenuItem_Click);
             // 
@@ -155,11 +161,12 @@
             this.pHONENUMBERDataGridViewTextBoxColumn,
             this.aDDRESSDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.rEADERSBindingSource1;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 103);
+            this.dataGridView1.Location = new System.Drawing.Point(9, 84);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(556, 294);
+            this.dataGridView1.Size = new System.Drawing.Size(417, 239);
             this.dataGridView1.TabIndex = 2;
             // 
             // iDDataGridViewTextBoxColumn
@@ -220,12 +227,15 @@
             // 
             // Readers
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 454);
+            this.BackgroundImage = global::Library.Properties.Resources.FL_Web_design_background_rustic_brown;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(435, 369);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.searchByNumberToolStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "Readers";
             this.Text = "Readers";

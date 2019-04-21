@@ -24,3 +24,33 @@ E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\git_library\Csharp_kursov\Library\Lib
 E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\git_library\Csharp_kursov\Library\Library\obj\Debug\Library.Insert_Reader.resources
 E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\git_library\Csharp_kursov\Library\Library\obj\Debug\Library.Registry.resources
 E:\vsichko\SIT\kurs_3\semester_2\Kursov_C#\git_library\Csharp_kursov\Library\Library\obj\Debug\Library.Insert_Reg.resources
+E:\3-ti kurs\2sem\rosen\Library\Library\bin\Debug\Library.exe.config
+E:\3-ti kurs\2sem\rosen\Library\Library\obj\Debug\Library.exe
+E:\3-ti kurs\2sem\rosen\Library\Library\obj\Debug\Library.pdb
+E:\3-ti kurs\2sem\rosen\Library\Library\bin\Debug\Library.exe
+E:\3-ti kurs\2sem\rosen\Library\Library\bin\Debug\Library.pdb
+E:\3-ti kurs\2sem\rosen\Library\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache
+E:\3-ti kurs\2sem\rosen\Library\Library\obj\Debug\Library.Books.resources
+E:\3-ti kurs\2sem\rosen\Library\Library\obj\Debug\Library.Form1.resources
+E:\3-ti kurs\2sem\rosen\Library\Library\obj\Debug\Library.Insert_Book.resources
+E:\3-ti kurs\2sem\rosen\Library\Library\obj\Debug\Library.Insert_Reader.resources
+E:\3-ti kurs\2sem\rosen\Library\Library\obj\Debug\Library.Insert_Reg.resources
+E:\3-ti kurs\2sem\rosen\Library\Library\obj\Debug\Library.Properties.Resources.resources
+E:\3-ti kurs\2sem\rosen\Library\Library\obj\Debug\Library.Readers.resources
+E:\3-ti kurs\2sem\rosen\Library\Library\obj\Debug\Library.Registry.resources
+E:\3-ti kurs\2sem\rosen\Library\Library\obj\Debug\Library.csproj.GenerateResource.Cache
+J:\Library\Library\bin\Debug\Library.exe.config
+J:\Library\Library\obj\Debug\Library.exe
+J:\Library\Library\obj\Debug\Library.pdb
+J:\Library\Library\bin\Debug\Library.exe
+J:\Library\Library\bin\Debug\Library.pdb
+J:\Library\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache
+J:\Library\Library\obj\Debug\Library.Books.resources
+J:\Library\Library\obj\Debug\Library.Form1.resources
+J:\Library\Library\obj\Debug\Library.Insert_Book.resources
+J:\Library\Library\obj\Debug\Library.Insert_Reader.resources
+J:\Library\Library\obj\Debug\Library.Insert_Reg.resources
+J:\Library\Library\obj\Debug\Library.Properties.Resources.resources
+J:\Library\Library\obj\Debug\Library.Readers.resources
+J:\Library\Library\obj\Debug\Library.Registry.resources
+J:\Library\Library\obj\Debug\Library.csproj.GenerateResource.Cache
